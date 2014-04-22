@@ -86,7 +86,6 @@ public class Erzmagier extends Mensch implements Anfuehrer {
      */
     @Override
     public String toString(){
-        return "Dies ist ein Erzmagier. Er ist Anführer der Menschen. "
-                + "Er hat noch " +this.lebenspunkte +" Lebenspunkte.";
+        return "Erzmagier(Menschenanführer, " +this.lebenspunkte +"LP)";
     }
 }

@@ -82,8 +82,7 @@ public class Nachtelf extends Wesen {
      */
     @Override
     public String toString(){
-        return "Dies ist ein Nachtelf. "
-                + "Er hat noch " +this.lebenspunkte +" Lebenspunkte.";
+        return "Nachtelf(" +this.lebenspunkte +"LP)";
     }
 
 }

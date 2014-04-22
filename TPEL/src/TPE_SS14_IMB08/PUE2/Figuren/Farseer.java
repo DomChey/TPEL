@@ -77,7 +77,6 @@ public class Farseer extends Ork implements Anfuehrer {
      */
     @Override
     public String toString(){
-        return "Dies ist ein Farseer. Er ist Anführer der Orks. "
-                + "Er hat noch " +this.lebenspunkte +" Lebenspunkte.";
+        return "Farseer(Orkanführer, " +this.lebenspunkte +"LP)";
     }
 }

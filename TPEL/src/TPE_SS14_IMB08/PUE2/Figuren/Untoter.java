@@ -81,8 +81,7 @@ public class Untoter extends Wesen {
      */
     @Override
     public String toString(){
-        return "Dies ist ein Untoter. "
-                + "Er hat noch " +this.lebenspunkte +" Lebenspunkte.";
+        return "Untoter(" +this.lebenspunkte +"LP)";
     }
 
 

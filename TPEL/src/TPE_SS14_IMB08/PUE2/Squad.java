@@ -63,4 +63,23 @@ public class Squad {
     public String toString(){
         return this.name;
     }
+    
+    
+    public void attackSquad (Squad gegner) {
+        for (int i = 0; i < this.armee.length; i++){
+            Wesen angreifer = this.armee[i];
+            Wesen verteidiger = 
+                 gegner.armee[(int)(Math.random()*(gegner.armee.length))];
+            if (angreifer.isLebendig() && verteidiger.isLebendig()){
+               System.out.println(angreifer + " von " + this 
+                       + " attackiert " + verteidiger + " von " + gegner 
+                       + " und verursacht " +angreifer.attack(verteidiger)
+                       + " Schaden.");
+            } else if (angreifer.isLebendig()){
+                System.out.println(angreifer + " verfehlt seinen Gegener.");
+            }
+        }
+        System.out.println();
+    }
+    
 }

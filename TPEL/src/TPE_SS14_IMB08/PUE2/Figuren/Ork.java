@@ -76,8 +76,7 @@ public class Ork extends Wesen {
      */
     @Override
     public String toString(){
-        return "Dies ist ein Ork. "
-                + "Er hat noch " +this.lebenspunkte +" Lebenspunkte.";
+        return "Ork(" + this.lebenspunkte + "LP)";
     }
 
 }

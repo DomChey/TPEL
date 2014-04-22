@@ -82,7 +82,6 @@ public class Lich extends Untoter implements Anfuehrer{
      */
     @Override
     public String toString(){
-        return "Dies ist ein Lich. Er ist Anführer der Untoten. "
-                + "Er hat noch " +this.lebenspunkte +" Lebenspunkte.";
+        return "Lich(Untotenanführer, " +this.lebenspunkte +"LP)";
     }
 }

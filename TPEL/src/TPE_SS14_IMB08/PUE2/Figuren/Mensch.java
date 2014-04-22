@@ -97,8 +97,7 @@ public class Mensch extends Wesen{
      */
     @Override
     public String toString(){
-        return "Dies ist ein Mensch. "
-                + "Er hat noch " +this.lebenspunkte +" Lebenspunkte.";
+        return "Mensch(" +this.lebenspunkte +"LP)";
     }
     
 }

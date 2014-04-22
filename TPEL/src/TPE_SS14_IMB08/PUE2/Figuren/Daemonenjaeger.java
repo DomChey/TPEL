@@ -74,7 +74,6 @@ public class Daemonenjaeger extends Nachtelf implements Anfuehrer{
      */
     @Override
     public String toString(){
-        return "Dies ist ein Dämonenjäger. Er ist Anführer der Nachtelfen. "
-                + "Er hat noch " +this.lebenspunkte +" Lebenspunkte.";
+        return "Dämonenjäger(Nachtelfenanführer, " +this.lebenspunkte +"LP)";
     }
 }
