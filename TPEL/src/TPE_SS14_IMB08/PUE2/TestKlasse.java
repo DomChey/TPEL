@@ -102,4 +102,5 @@ public class TestKlasse {
         assertTrue(s6.armee[0] instanceof Lich);
         assertTrue(s6.armee[13] instanceof Daemonenjaeger);
     }
+    
 }
