@@ -64,22 +64,16 @@ public class Squad {
         return this.name;
     }
     
-    
-    public void attackSquad (Squad gegner) {
-        for (int i = 0; i < this.armee.length; i++){
-            Wesen angreifer = this.armee[i];
-            Wesen verteidiger = 
-                 gegner.armee[(int)(Math.random()*(gegner.armee.length))];
-            if (angreifer.isLebendig() && verteidiger.isLebendig()){
-               System.out.println(angreifer + " von " + this 
-                       + " attackiert " + verteidiger + " von " + gegner 
-                       + " und verursacht " +angreifer.attack(verteidiger)
-                       + " Schaden.");
-            } else if (angreifer.isLebendig()){
-                System.out.println(angreifer + " verfehlt seinen Gegener.");
-            }
+    public int attackSquad(Squad gegner){
+        Wesen angreifer = this.armee[(int) (Math.random()*this.armee.length)];
+        Wesen verteidiger = gegner.armee[(int) (Math.random()*gegner.armee.length)];
+        while (!angreifer.isLebendig() && !verteidiger.isLebendig()){
+            angreifer = this.armee[(int) (Math.random()*this.armee.length)];
+            verteidiger = gegner.armee[(int) (Math.random()*gegner.armee.length)];
         }
-        System.out.println();
+        int schaden = angreifer.attack(verteidiger);
+        return schaden;
+        
     }
     
 }
