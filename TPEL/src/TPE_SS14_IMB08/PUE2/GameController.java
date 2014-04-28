@@ -1,5 +1,6 @@
 package TPE_SS14_IMB08.PUE2;
 
+
 /**
  * Der GameController startet ein Spiel und besitzt die Kenntniss über die
  * aktuelle Runde und welcher Spieler an der Reihe ist. 
@@ -11,6 +12,11 @@ public class GameController {
     
     public static int AKTUELLE_RUNDE;
     public static Squad AKTUELLER_SPIELER;
+    public static Squad AKTUELLER_VERTEIDIGER;
+    public static int SCHADEN;
+    public static Squad SIEGER; 
+    
+    
     
    /**
     * Startet ein neues Spiel mit zwei Spielern und lässt diese gegeneinadner 
@@ -22,25 +28,28 @@ public class GameController {
         GameController.AKTUELLE_RUNDE = 0;
         
         while (player1.nochKaempfer() && player2.nochKaempfer()){
-            GameController.AKTUELLE_RUNDE++;
-            GameController.AKTUELLER_SPIELER = player1;
-
-            System.out.println("Spielrunde " + AKTUELLE_RUNDE);
-            System.out.println(AKTUELLER_SPIELER +" ist an der Reihe.");
-            AKTUELLER_SPIELER.attackSquad(player2);
+           
+            AKTUELLE_RUNDE++;
+            AKTUELLER_SPIELER = player1;
+            AKTUELLER_VERTEIDIGER = player2;
+            SCHADEN= AKTUELLER_SPIELER.attackSquad(AKTUELLER_VERTEIDIGER);
+            GameViewer.printGame();
             
-            
-            GameController.AKTUELLER_SPIELER = player2;
-            System.out.println(AKTUELLER_SPIELER +" ist an der Reihe.");
-            AKTUELLER_SPIELER.attackSquad(player1);
-
+            AKTUELLER_SPIELER = player2;
+            AKTUELLER_VERTEIDIGER = player1;
+            SCHADEN= AKTUELLER_SPIELER.attackSquad(AKTUELLER_VERTEIDIGER);
+            GameViewer.printGame();
         }
-        System.out.println("");
+            
+            
+          
         if(player1.nochKaempfer()){
-            System.out.println("Sieger ist " +player1);
+           SIEGER = player1;
         } else {
-            System.out.println("Sieger ist " +player2);
+            SIEGER = player2;
         }
+        GameViewer.printSieger();
+
         
     }
    
