@@ -62,12 +62,16 @@ public class WesenFactory {
      * @return  Array entsprechend den Vorgaben.
      */
     public static Wesen[] erzeuge(int kapital, Rasse rasse1, Rasse rasse2) {
-        Wesen[] teil1 = WesenFactory.erzeuge(kapital/2, rasse1);
-        Wesen[] teil2 = WesenFactory.erzeuge(kapital/2, rasse2);
-        Wesen[] squad = new Wesen[teil1.length + teil2.length];
-        System.arraycopy(teil1, 0, squad, 0, teil1.length);
-        System.arraycopy(teil2, 0, squad, teil1.length, teil2.length);
-        return squad;
+        if (rasse1 == rasse2){
+            return WesenFactory.erzeuge(kapital, rasse1); 
+        } else{
+            Wesen[] teil1 = WesenFactory.erzeuge(kapital/2, rasse1);
+            Wesen[] teil2 = WesenFactory.erzeuge(kapital/2, rasse2);
+            Wesen[] squad = new Wesen[teil1.length + teil2.length];
+            System.arraycopy(teil1, 0, squad, 0, teil1.length);
+            System.arraycopy(teil2, 0, squad, teil1.length, teil2.length);
+            return squad;
+        }
      
     }
 }
