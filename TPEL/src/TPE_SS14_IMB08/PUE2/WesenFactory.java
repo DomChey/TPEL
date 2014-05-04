@@ -1,9 +1,9 @@
 package TPE_SS14_IMB08.PUE2;
+import TPE_SS14_IMB08.PUE2.Figuren.*;
 
 /**
  * Erstellt die Armeen der Squads
  */
-import TPE_SS14_IMB08.PUE2.Figuren.*;
 
 public class WesenFactory {
     /**
@@ -16,8 +16,8 @@ public class WesenFactory {
      * @return Array entsprechend den Vorgaben
      */
     public static Wesen[] erzeuge(int kapital, Rasse rasse) {
-        int anzahl = (kapital/rasse.kosten) - 1; // -1 da Anführer das Doppelte kostet 
-        if (anzahl > 0){
+        int anzahl = (kapital/rasse.kosten) - 1; // -1 da Anführer das Doppelte  
+        if (anzahl > 0){                            //kostet
             Wesen[] squad = new Wesen[anzahl];
             switch (rasse){
                 case ORK:
