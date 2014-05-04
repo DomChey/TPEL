@@ -64,6 +64,14 @@ public class Squad {
         return this.name;
     }
     
+    /**
+     * Ermöglicht es einem Squad ein anderes anzugreifen und gibt den in diesem
+     * Kampf verursachten Schaden zurück. Dabei werden Angreifer und 
+     * Angegriffener zufällig bestimmt.
+     * 
+     * @param gegner GegnerSquad
+     * @return verursachter Schaden
+     */
     public int attackSquad(Squad gegner){
         Wesen angreifer = this.armee[(int) (Math.random()*this.armee.length)];
         Wesen verteidiger = gegner.armee[(int) (Math.random()*gegner.armee.length)];
