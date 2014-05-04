@@ -70,7 +70,7 @@ public class Squad {
      * Angegriffener zufällig bestimmt.
      * 
      * @param gegner GegnerSquad
-     * @return
+     * @return verursachter Schaden
      */
     public int attackSquad(Squad gegner){
         Wesen angreifer = this.armee[(int) (Math.random()*this.armee.length)];
