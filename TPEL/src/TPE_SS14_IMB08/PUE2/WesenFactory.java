@@ -1,9 +1,9 @@
 package TPE_SS14_IMB08.PUE2;
+import TPE_SS14_IMB08.PUE2.Figuren.*;
 
 /**
  * Erstellt die Armeen der Squads
  */
-import TPE_SS14_IMB08.PUE2.Figuren.*;
 
 public class WesenFactory {
     /**
@@ -16,8 +16,8 @@ public class WesenFactory {
      * @return Array entsprechend den Vorgaben
      */
     public static Wesen[] erzeuge(int kapital, Rasse rasse) {
-        int anzahl = (kapital/rasse.kosten) - 1; // -1 da Anführer das Doppelte kostet 
-        if (anzahl > 0){
+        int anzahl = (kapital/rasse.kosten) - 1; // -1 da Anführer das Doppelte  
+        if (anzahl > 0){                            //kostet
             Wesen[] squad = new Wesen[anzahl];
             switch (rasse){
                 case ORK:
@@ -62,12 +62,16 @@ public class WesenFactory {
      * @return  Array entsprechend den Vorgaben.
      */
     public static Wesen[] erzeuge(int kapital, Rasse rasse1, Rasse rasse2) {
-        Wesen[] teil1 = WesenFactory.erzeuge(kapital/2, rasse1);
-        Wesen[] teil2 = WesenFactory.erzeuge(kapital/2, rasse2);
-        Wesen[] squad = new Wesen[teil1.length + teil2.length];
-        System.arraycopy(teil1, 0, squad, 0, teil1.length);
-        System.arraycopy(teil2, 0, squad, teil1.length, teil2.length);
-        return squad;
+        if (rasse1 == rasse2){
+            return WesenFactory.erzeuge(kapital, rasse1); 
+        } else{
+            Wesen[] teil1 = WesenFactory.erzeuge(kapital/2, rasse1);
+            Wesen[] teil2 = WesenFactory.erzeuge(kapital/2, rasse2);
+            Wesen[] squad = new Wesen[teil1.length + teil2.length];
+            System.arraycopy(teil1, 0, squad, 0, teil1.length);
+            System.arraycopy(teil2, 0, squad, teil1.length, teil2.length);
+            return squad;
+        }
      
     }
 }
