@@ -10,7 +10,7 @@ public class GameViewer {
         + GameController.SCHADEN +" Schaden. ");
         System.out.println();
         }
-  
+   
    
     public static void printSieger(){
         System.out.println("Sieger ist " +GameController.SIEGER);
