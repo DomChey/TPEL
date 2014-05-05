@@ -2,7 +2,7 @@ package TPE_SS14_IMB08.PUE2;
 
 
 /**
- * Der GameController startet ein Spiel und besitzt die Kenntniss über die
+ * Der GameController startet ein Spiel und besitzt die Kenntnis über die
  * aktuelle Runde und welcher Spieler an der Reihe ist. 
  * 
  * @author IMB08
