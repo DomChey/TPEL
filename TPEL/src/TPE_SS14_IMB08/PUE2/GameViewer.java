@@ -22,7 +22,7 @@ public class GameViewer {
         + GameController.SCHADEN +" Schaden. ");
         System.out.println();
         }
-  
+
    /**
     * Gibt den Sieger des Spiels aus. 
     */
