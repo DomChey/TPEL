@@ -4,12 +4,12 @@ public class Node<T> {
     
     public String name;
     public T wert;
-    public NodeListImpl kinder;
+    public NodeListImpl<Node<T>> kinder;
 
     public Node(String name, T wert) {
         this.name = name;
         this.wert = wert;
-        this.kinder = new NodeListImpl();
+        this.kinder = new NodeListImpl<Node<T>>();
     }
     
     public void addChild(Node<T> kind) {
@@ -17,7 +17,7 @@ public class Node<T> {
         
     }
     
-    public NodeListImpl getChildren(){
+    public NodeListImpl<Node<T>> getChildren(){
         return this.kinder;
     }
     
