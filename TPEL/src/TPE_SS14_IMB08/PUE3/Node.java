@@ -9,10 +9,23 @@ public class Node<T> {
     public Node(String name, T wert) {
         this.name = name;
         this.wert = wert;
+        this.kinder = new NodeListImpl();
     }
     
-    public void addChild(Node kind) {
+    public void addChild(Node<T> kind) {
         kinder.addLast(kind);
         
+    }
+    
+    public NodeListImpl getChildren(){
+        return this.kinder;
+    }
+    
+    public String getName(){
+        return this.name;
+    }
+    
+    public T getValue(){
+        return this.wert;
     }
 }
