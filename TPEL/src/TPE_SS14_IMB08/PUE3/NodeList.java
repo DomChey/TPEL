@@ -1,5 +1,5 @@
 package TPE_SS14_IMB08.PUE3;
 
-public interface NodeList extends List<Node> {
+public interface NodeList<T> extends List<Node<T>> {
 
 }
