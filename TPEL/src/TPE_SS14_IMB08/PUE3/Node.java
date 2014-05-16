@@ -1,23 +1,23 @@
 package TPE_SS14_IMB08.PUE3;
 
-public class Node<T> {
+public class Node<E> {
     
-    public String name;
-    public T wert;
-    public NodeListImpl<Node<T>> kinder;
+    private String name;
+    private E wert;
+    private NodeListImpl<E> kinder;
 
-    public Node(String name, T wert) {
+    public Node(String name, E wert) {
         this.name = name;
         this.wert = wert;
-        this.kinder = new NodeListImpl<Node<T>>();
+        this.kinder = new NodeListImpl<E>();
     }
     
-    public void addChild(Node<T> kind) {
+    public void addChild(Node<E> kind) {
         kinder.addLast(kind);
         
     }
     
-    public NodeListImpl<Node<T>> getChildren(){
+    public NodeListImpl<E> getChildren(){
         return this.kinder;
     }
     
@@ -25,7 +25,7 @@ public class Node<T> {
         return this.name;
     }
     
-    public T getValue(){
+    public E getValue(){
         return this.wert;
     }
 }
