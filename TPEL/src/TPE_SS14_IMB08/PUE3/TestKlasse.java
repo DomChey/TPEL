@@ -11,7 +11,7 @@ public class TestKlasse {
         Node<String> f = new Node<String>("f", "F");
         Node<String> g = new Node<String>("g", "G");
         Node<String> h = new Node<String>("h", "H");
-        Node<String> i = new Node<String>("i", "I");
+        Node<String> i = new Node<String>("i", "C");
         Node<String> j = new Node<String>("j", "J");
         Node<String> k = new Node<String>("k", "K");
         Node<String> l = new Node<String>("l", "L");
@@ -47,8 +47,8 @@ public class TestKlasse {
         }
         
 //        System.out.println("\n");
-        NodeListImpl<String> ergebnis = dracula.search("A");
-        System.out.println(ergebnis);
+        NodeListImpl<String> ergebnis = dracula.search("C");
+        System.out.println(ergebnis);       
         System.out.println(dracula.getPath());
     }
 
