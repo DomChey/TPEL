@@ -26,10 +26,10 @@ public class Graph<T> implements SearchStrategy<T>{
         return liste;
     }
 
-    @Override
+    @Override   //sollen wir hier ne Benutzerabfrage einbauen?
     public NodeListImpl<T> search(T wert) {
-//        return searchBreit(wert);
-        return searchTief(wert);
+        return searchBreit(wert);
+//        return searchTief(wert);
     }
 
     private NodeListImpl<T> searchBreit(T wert) {
@@ -39,15 +39,23 @@ public class Graph<T> implements SearchStrategy<T>{
         NodeListImpl<T> queue = new NodeListImpl<T>();
         
         path.add(head);
+        //Kinder an Queue haengen       
+        queue.addAll(head.getChildren());
+
+        if(head.getValue().equals(wert)) {
+            matches.add(head);
+        }
         
-        //Kinder an Queue haengen
-        //Queue durchsuchen
-        //wieder Kinder anhaengen
-        //Abbruchbedingung??
-        
-        
-        
-        
+        while(!queue.isEmpty()){
+            Node<T> tmp = queue.pop();
+            if(!path.contains(tmp)) {
+                path.add(tmp);
+                queue.addAll(tmp.getChildren());
+                if(tmp.getValue().equals(wert)) {
+                    matches.add(tmp);
+                }
+            }
+        }
         
         return matches;
         

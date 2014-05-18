@@ -30,6 +30,6 @@ public class Node<E> {
     }
     
     public String toString() {
-        return getValue().toString();
+        return getName() + getValue().toString();
     }
 }
