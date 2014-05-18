@@ -1,5 +1,13 @@
 package TPE_SS14_IMB08.PUE3;
 
+/**
+ * Interface zur Suche in Graphen.
+ * 
+ * @author IMB08
+ *
+ * @param <T> Typ des zu durchsuchenden Graphen.
+ */
+
 public interface SearchStrategy<T> {
     /**
      * Durchsucht vom Startknoten aus den Graphen nach einem bestimmten Wert
