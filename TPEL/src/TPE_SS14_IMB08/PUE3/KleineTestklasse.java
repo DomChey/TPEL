@@ -13,7 +13,7 @@ public class KleineTestklasse {
         Graph<Integer> graph1 = new Graph<Integer>(n1);
         
         
-        NodeListImpl<Integer> liste = n1.getChildren();
+        NodeList<Integer> liste = n1.getChildren();
         liste = graph1.copyInto(liste);
         
         for(Node<Integer> knoten: liste) {

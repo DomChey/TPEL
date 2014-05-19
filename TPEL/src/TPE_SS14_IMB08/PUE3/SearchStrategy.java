@@ -16,12 +16,12 @@ public interface SearchStrategy<T> {
      * @param start TODO
      * @return      Liste mit passenden Knoten
      */
-    public NodeListImpl<T> search(T wert, Node<T> start);
+    public NodeList<T> search(T wert, Node<T> start);
     
     /**
      * Liefert den Weg, den die Suche beim letzten Durchlauf durch den
      * Graphen genomen hat.
      * @return letzter Weg
      */
-    public NodeListImpl<T> getPath();
+    public NodeList<T> getPath();
 }

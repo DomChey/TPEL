@@ -15,7 +15,7 @@ public class Graph<T>{
     private Node<T> head;
     
     /** 
-     * Erstellt einen neuen Graphen mit dem übergebenen Knoten als 
+     * Erstellt einen neuen Graphen mit dem uebergebenen Knoten als 
      * Anfangsknoten. 
      * 
      * @param head  Anfagngsknoten des Graphen
@@ -25,18 +25,18 @@ public class Graph<T>{
     }
     
     /**
-     * Kopiert alle Knoten des Graphen in eine übergebene Liste.
+     * Kopiert alle Knoten des Graphen in eine uebergebene Liste.
      * 
-     * @param liste übergebene Liste, in welche die Knoten eingetragen werden.
-     * @return veränderte Liste mit eingetragenen Knoten.
+     * @param liste uebergebene Liste, in welche die Knoten eingetragen werden.
+     * @return veraenderte Liste mit eingetragenen Knoten.
      */
-    public NodeListImpl<T> copyInto(NodeListImpl<T> liste) {
+    public NodeList<T> copyInto(NodeList<T> liste) {
         liste.addLast(head);
         return copyIntoRek(head, liste);
     }
     
-    private NodeListImpl<T> copyIntoRek(Node<T> anfang, NodeListImpl<T> liste) {
-        NodeListImpl<T> tmp = anfang.getChildren();
+    private NodeList<T> copyIntoRek(Node<T> anfang, NodeList<T> liste) {
+        NodeList<T> tmp = anfang.getChildren();
 
         for(Node<T> knoten: tmp) {
             if(!liste.contains(knoten)) {
@@ -48,12 +48,12 @@ public class Graph<T>{
     }
     /**
      * Durchsucht den Graphen nach einem bestimmten Wert entsprechend der 
-     * übergebenen Suchstrategie
+     * uebergebenen Suchstrategie
      * @param wert  zu suchender Wert
      * @param strategie Strategie nach der gesucht werden soll
      * @return Liste der Knoten, die den gesuchten Wert enthalten
      */
-    public NodeListImpl<T> search(T wert, SearchStrategy<T> strategie) {
+    public NodeList<T> search(T wert, SearchStrategy<T> strategie) {
         return strategie.search(wert, this.head);
     }
         

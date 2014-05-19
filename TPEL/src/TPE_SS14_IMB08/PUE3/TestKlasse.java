@@ -39,25 +39,34 @@ public class TestKlasse {
         
         Graph<String> dracula = new Graph<String>(a);
         
-        NodeListImpl<String>liste = new NodeListImpl<String>();
-        liste = dracula.copyInto(liste);
-        
+        NodeList<String>liste = new NodeListImpl<String>();
+        liste = dracula.copyInto(liste);        
         for(Node<String> knoten: liste) {
             System.out.print(knoten + ", ");
         }
         
         System.out.println("\n");
         
-        SearchStrategy<String> sW = new SearchWide<String>();
-        NodeListImpl<String> ergebnis = dracula.search("C", sW);
-        System.out.println(ergebnis);       
-        System.out.println(sW.getPath());
+        
+    
+
+
         
         SearchStrategy<String> sD = new SearchDeep<String>();
-        NodeListImpl<String> result = dracula.search("C", sD);
-        System.out.println(result);       
-        System.out.println(sD.getPath());
+        NodeList<String> result = dracula.search("C", sD);
+        System.out.println("DeepErgebnis: " + result);       
+        System.out.println("DeepPath: " + sD.getPath());
         
+        SearchStrategy<String> sW = new SearchWide<String>();
+        NodeList<String> ergebnis = dracula.search("C", sW);
+        System.out.println("WideErgebnis: " + ergebnis);       
+        System.out.println("WidePath: " + sW.getPath());
+        
+        SearchStrategy<String> swW = new SearchWide<String>();
+        NodeList<String> wergebnis = dracula.search("C", swW);
+        System.out.println("WideErgebnis: " + wergebnis);       
+        System.out.println("WidePath: " + swW.getPath());
+    
         
     }
 
