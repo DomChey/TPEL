@@ -1,5 +1,10 @@
 package TPE_SS14_IMB08.PUE3;
 
+/**
+ * Simulation eines Graphen, entsprechend Aufgabenteil f)
+ * @author IMB08
+ *
+ */
 public class Simulation {
 
     public static void main(String[] args) {
