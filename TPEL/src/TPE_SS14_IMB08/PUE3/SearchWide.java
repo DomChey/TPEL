@@ -15,7 +15,7 @@ public class SearchWide<T> implements SearchStrategy<T> {
      * Suche gespeichert wird.
      */
     public SearchWide(){
-        this.path = new NodeListImpl<>();
+        this.path = new NodeListImpl<T>();
     }
     /**
      * 
@@ -25,8 +25,7 @@ public class SearchWide<T> implements SearchStrategy<T> {
     public NodeList<T> search(T wert, Node<T> start) {
         path.clear();
         NodeList<T> matches = new NodeListImpl<T>();
-        
-        NodeList<T> queue = new NodeListImpl<T>();
+        NodeListImpl<T> queue = new NodeListImpl<T>();
 
         queue.add(start);
         
@@ -34,10 +33,11 @@ public class SearchWide<T> implements SearchStrategy<T> {
             Node<T> tmp = queue.pollFirst();
             if(!path.contains(tmp)) {
                 path.add(tmp);
-                NodeList<T> tmpKind = tmp.getChildren();
-                while (!tmpKind.isEmpty()) {
-                	queue.add(tmpKind.pollFirst());
-                }
+                NodeListImpl<T> tmpKind = tmp.getChildren();
+//                while (!tmpKind.isEmpty()) {
+//                	queue.add(tmpKind.pollFirst());
+//                }
+                queue.addAll(tmpKind);
                 if(tmp.getValue().equals(wert)) {
                     matches.add(tmp);
                 }
