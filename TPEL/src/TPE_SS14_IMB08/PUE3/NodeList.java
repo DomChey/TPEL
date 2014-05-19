@@ -1,5 +1,6 @@
 package TPE_SS14_IMB08.PUE3;
 
+
 /**
  * Datenstruktur zur Verwaltung von generischen Knoten.
  * 
