@@ -25,12 +25,14 @@ public class Node<E> {
         this.kinder = new NodeListImpl<E>();
     }
     /**
-     * Fügt den übergebenen Knoten als Kind hinzu.
+     * Fügt den übergebenen Knoten als Kind hinzu, sofern er nicht schon ein
+     * Kind ist.
      * @param kind Knoten, der als Kind gespeichert werden soll
      */
     public void addChild(Node<E> kind) {
-        this.kinder.addLast(kind);
-        
+        if (!this.kinder.contains(kind)){
+            this.kinder.addLast(kind);
+        }
     }
     /**
      * Gibt alle Kinder des Knotens in einer Liste zurück.

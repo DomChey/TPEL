@@ -43,13 +43,22 @@ public class TestKlasse {
         liste = dracula.copyInto(liste);
         
         for(Node<String> knoten: liste) {
-//            System.out.print(knoten + ", ");
+            System.out.print(knoten + ", ");
         }
         
-//        System.out.println("\n");
-        NodeListImpl<String> ergebnis = dracula.search("C");
+        System.out.println("\n");
+        
+        SearchStrategy<String> sW = new SearchWide<String>();
+        NodeListImpl<String> ergebnis = dracula.search("C", sW);
         System.out.println(ergebnis);       
-        System.out.println(dracula.getPath());
+        System.out.println(sW.getPath());
+        
+        SearchStrategy<String> sD = new SearchDeep<String>();
+        NodeListImpl<String> result = dracula.search("C", sD);
+        System.out.println(result);       
+        System.out.println(sD.getPath());
+        
+        
     }
 
 }
