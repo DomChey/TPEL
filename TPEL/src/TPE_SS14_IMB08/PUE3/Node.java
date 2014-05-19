@@ -12,7 +12,7 @@ public class Node<E> {
     
     private String name;
     private E wert;
-    private NodeList<E> kinder;
+    private NodeListImpl<E> kinder;
 
     /**
      * Erstellt aus übergebenem Namen und Wert einen neuen Knoten.
@@ -38,7 +38,7 @@ public class Node<E> {
      * Gibt alle Kinder des Knotens in einer Liste zurück.
      * @return Liste mit den Kindern des Knotens
      */
-    public NodeList<E> getChildren(){
+    public NodeListImpl<E> getChildren(){
         return this.kinder;
     }
     /**

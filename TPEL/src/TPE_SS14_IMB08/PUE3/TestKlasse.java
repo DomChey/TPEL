@@ -57,6 +57,8 @@ public class TestKlasse {
         System.out.println("DeepErgebnis: " + result);       
         System.out.println("DeepPath: " + sD.getPath());
         
+        System.out.println(a.getChildren());
+        
         SearchStrategy<String> sW = new SearchWide<String>();
         NodeList<String> ergebnis = dracula.search("C", sW);
         System.out.println("WideErgebnis: " + ergebnis);       
@@ -67,7 +69,7 @@ public class TestKlasse {
         System.out.println("WideErgebnis: " + wergebnis);       
         System.out.println("WidePath: " + swW.getPath());
     
-        
+        System.out.println(a.getChildren());
     }
 
 }
