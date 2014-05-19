@@ -38,5 +38,15 @@ public class Simulation {
         j.addChild(i);
         
         k.addChild(d);
+        
+        Graph<String> graph = new Graph<>(a);
+        SearchWide<String> sw = new SearchWide<>();
+        graph.search("K", sw);
+        System.out.println(sw.getPath());
+        
+        SearchDeep<String> sd = new SearchDeep<>();
+        graph.search("K", sd);
+        System.out.println(sd.getPath());
+        
     }
 }
