@@ -46,7 +46,13 @@ public class Graph<T>{
         }
         return liste;
     }
- 
+    /**
+     * Durchsucht den Graphen nach einem bestimmten Wert entsprechend der 
+     * übergebenen Suchstrategie
+     * @param wert  zu suchender Wert
+     * @param strategie Strategie nach der gesucht werden soll
+     * @return Liste der Knoten, die den gesuchten Wert enthalten
+     */
     public NodeListImpl<T> search(T wert, SearchStrategy<T> strategie) {
         return strategie.search(wert, this.head);
     }
