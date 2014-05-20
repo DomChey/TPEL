@@ -58,7 +58,7 @@ public class TestKlasse {
             SearchDeep<String> sD = new SearchDeep<>();
             NodeListImpl<String> sDListe = dracula.search("P", sD);
             NodeListImpl<String> vergleich = new NodeListImpl<String>();
-            vergleich.
+           
             
             
             
