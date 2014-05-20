@@ -1,5 +1,7 @@
 package TPE_SS14_IMB08.PUE3;
 
+import TPE_SS14_IMB08.PUE1.Festkommazahl;
+
 /**
  * Generische Knoten. Jeder Knoten hat einen Namen, einen Wert beliebigen
  * Typs und beliebig viele Kinder, die in einer Liste verwaltet werden.
@@ -61,4 +63,15 @@ public class Node<E> {
     public String toString() {
         return getName() + getValue().toString();
     }
+    /**
+     * Vergleicht zwei Knoten auf Gleichheit. Sie sind gleich, wenn ihr Wert
+     * und ihr Name gleich sind.
+     */
+    public boolean equals(Object o) {
+      Node<E> zwei = (Node<E>) o;
+       if (this.wert == zwei.wert && this.name.equals(zwei.getName())) {
+               return true;
+        }
+       return false;
+   }
 }
