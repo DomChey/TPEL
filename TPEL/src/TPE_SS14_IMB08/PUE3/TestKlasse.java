@@ -19,8 +19,6 @@ public class TestKlasse {
         assertEquals("Hallo", drei.getValue());
     }
         
-        
-<<<<<<< HEAD
         @Test
         public void Tiefensuche(){
             Node<String> a = new Node<String>("a", "A");
@@ -57,70 +55,13 @@ public class TestKlasse {
             m.addChild(n);
             Graph<String> dracula = new Graph<String>(a);
             SearchDeep<String> sD = new SearchDeep<>();
-            NodeListImpl<String> sDListe = dracula.search("P", sD);
-            NodeListImpl<String> vergleich = new NodeListImpl<String>();
-           
-            
-            
-            
-=======
-        Graph<String> dracula = new Graph<String>(a);
-        
-        NodeList<String>liste = new NodeListImpl<String>();
-        liste = dracula.copyInto(liste);        
-        for(Node<String> knoten: liste) {
-            System.out.print(knoten + ", ");
->>>>>>> branch 'master' of https://github.com/DomChey/TPEL.git
+            NodeList<String> sDListe = dracula.search("P", sD);
+            NodeList<String> vergleich = new NodeListImpl<String>();
         }
-        
-        
-<<<<<<< HEAD
-//        Graph<String> dracula = new Graph<String>(a);
-//        
-//        NodeListImpl<String>liste = new NodeListImpl<String>();
-//        liste = dracula.copyInto(liste);
-//        
-//        for(Node<String> knoten: liste) {
-//            System.out.print(knoten + ", ");
-//        }
-//        
-//        System.out.println("\n");
-//        
-//        SearchStrategy<String> sW = new SearchWide<String>();
-//        NodeListImpl<String> ergebnis = dracula.search("C", sW);
-//        System.out.println(ergebnis);       
-//        System.out.println(sW.getPath());
-//        
-//        SearchStrategy<String> sD = new SearchDeep<String>();
-//        NodeListImpl<String> result = dracula.search("C", sD);
-//        System.out.println(result);       
-//        System.out.println(sD.getPath());
-//        
-//        
-=======
-        
     
 
 
         
-        SearchStrategy<String> sD = new SearchDeep<String>();
-        NodeList<String> result = dracula.search("C", sD);
-        System.out.println("DeepErgebnis: " + result);       
-        System.out.println("DeepPath: " + sD.getPath());
-        
-        System.out.println(a.getChildren());
-        
-        SearchStrategy<String> sW = new SearchWide<String>();
-        NodeList<String> ergebnis = dracula.search("C", sW);
-        System.out.println("WideErgebnis: " + ergebnis);       
-        System.out.println("WidePath: " + sW.getPath());
-        
-        SearchStrategy<String> swW = new SearchWide<String>();
-        NodeList<String> wergebnis = dracula.search("C", swW);
-        System.out.println("WideErgebnis: " + wergebnis);       
-        System.out.println("WidePath: " + swW.getPath());
-    
-        System.out.println(a.getChildren());
->>>>>>> branch 'master' of https://github.com/DomChey/TPEL.git
+       
     }
 
