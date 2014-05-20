@@ -134,6 +134,27 @@ public class TestKlasse {
             vergleich.addLast(n);
             assertEquals(vergleich, sWListe); 
         }
+        
+        @Test
+        public void children(){
+            Node<String> a = new Node<String>("a", "A");
+            Node<String> b = new Node<String>("b", "B");
+            Node<String> c = new Node<String>("c", "C");
+            Node<String> d = new Node<String>("d", "D");
+            
+            a.addChild(b);
+            a.addChild(c);
+            a.addChild(d);
+            a.addChild(b);
+            
+            NodeList<String> kinder = a.getChildren();
+            NodeList<String> vergleich = new NodeListImpl<>();
+            vergleich.addLast(b);
+            vergleich.addLast(c);
+            vergleich.addLast(d);
+            
+            assertEquals(vergleich, kinder);
+        }
     
 
 
