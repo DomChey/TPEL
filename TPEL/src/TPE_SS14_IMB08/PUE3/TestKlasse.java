@@ -20,6 +20,7 @@ public class TestKlasse {
     }
         
         
+<<<<<<< HEAD
         @Test
         public void Tiefensuche(){
             Node<String> a = new Node<String>("a", "A");
@@ -62,9 +63,18 @@ public class TestKlasse {
             
             
             
+=======
+        Graph<String> dracula = new Graph<String>(a);
+        
+        NodeList<String>liste = new NodeListImpl<String>();
+        liste = dracula.copyInto(liste);        
+        for(Node<String> knoten: liste) {
+            System.out.print(knoten + ", ");
+>>>>>>> branch 'master' of https://github.com/DomChey/TPEL.git
         }
         
         
+<<<<<<< HEAD
 //        Graph<String> dracula = new Graph<String>(a);
 //        
 //        NodeListImpl<String>liste = new NodeListImpl<String>();
@@ -87,5 +97,30 @@ public class TestKlasse {
 //        System.out.println(sD.getPath());
 //        
 //        
+=======
+        
+    
+
+
+        
+        SearchStrategy<String> sD = new SearchDeep<String>();
+        NodeList<String> result = dracula.search("C", sD);
+        System.out.println("DeepErgebnis: " + result);       
+        System.out.println("DeepPath: " + sD.getPath());
+        
+        System.out.println(a.getChildren());
+        
+        SearchStrategy<String> sW = new SearchWide<String>();
+        NodeList<String> ergebnis = dracula.search("C", sW);
+        System.out.println("WideErgebnis: " + ergebnis);       
+        System.out.println("WidePath: " + sW.getPath());
+        
+        SearchStrategy<String> swW = new SearchWide<String>();
+        NodeList<String> wergebnis = dracula.search("C", swW);
+        System.out.println("WideErgebnis: " + wergebnis);       
+        System.out.println("WidePath: " + swW.getPath());
+    
+        System.out.println(a.getChildren());
+>>>>>>> branch 'master' of https://github.com/DomChey/TPEL.git
     }
 

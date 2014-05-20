@@ -8,7 +8,7 @@ package TPE_SS14_IMB08.PUE3;
  */
 public class SearchDeep<T> implements SearchStrategy<T> {
     
-    private NodeListImpl<T> path;
+    private NodeList<T> path;
     
     /**
      * Erstellt ein neues Suchobjekt mit einem Pfad in dem der Verlauf der 
@@ -21,9 +21,9 @@ public class SearchDeep<T> implements SearchStrategy<T> {
     * @see TPE_SS14_IMB08.PUE3.SearchStrategy#search(java.lang.Object, TPE_SS14_IMB08.PUE3.Node)
     */
     @Override
-    public NodeListImpl<T> search(T wert, Node<T> start) {
+    public NodeList<T> search(T wert, Node<T> start) {
         path.clear();
-        NodeListImpl<T> matches = new NodeListImpl<T>();
+        NodeList<T> matches = new NodeListImpl<T>();
         path.addLast(start);
         if (start.getValue().equals(wert)) {
             matches.addLast(start);
@@ -32,10 +32,10 @@ public class SearchDeep<T> implements SearchStrategy<T> {
     }
     
     
-    private NodeListImpl<T> searchTiefRek(T wert, Node<T> anfang,
-                                            NodeListImpl<T> matches) {
+    private NodeList<T> searchTiefRek(T wert, Node<T> anfang,
+                                            NodeList<T> matches) {
 
-        NodeListImpl<T> tmp = anfang.getChildren();
+        NodeList<T> tmp = anfang.getChildren();
 
         for(Node<T> knoten: tmp) {
             if(!path.contains(knoten)) {
@@ -53,7 +53,7 @@ public class SearchDeep<T> implements SearchStrategy<T> {
      * @see TPE_SS14_IMB08.PUE3.SearchStrategy#getPath()
      */
     @Override
-    public NodeListImpl<T> getPath() {
+    public NodeList<T> getPath() {
         return this.path;
     }
     

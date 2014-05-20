@@ -1,5 +1,6 @@
 package TPE_SS14_IMB08.PUE3;
 
+
 /**
 * Einfache Datenstruktur zur Verwaltung einer Reihe von Elementen.
 *
@@ -20,6 +21,7 @@ public abstract boolean contains(Object e);
 * @return ist immer true
 */
 public abstract boolean add(T e);
+public abstract void addLast(T e);
 /**
 * Fügt am Anfang ein Element hinzu.
 *
@@ -48,4 +50,6 @@ public abstract T pollFirst();
 * Löscht den Inhalt der List.
 */
 public abstract void clear();
+
 }
+
