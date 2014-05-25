@@ -1,6 +1,5 @@
 package TPE_SS14_IMB08.PUE3;
 
-import TPE_SS14_IMB08.PUE1.Festkommazahl;
 
 /**
  * Generische Knoten. Jeder Knoten hat einen Namen, einen Wert beliebigen
@@ -17,7 +16,7 @@ public class Node<E> {
     private NodeListImpl<E> kinder;
 
     /**
-     * Erstellt aus übergebenem Namen und Wert einen neuen Knoten.
+     * Erstellt aus uebergebenem Namen und Wert einen neuen Knoten.
      * @param name Name des Knotens, vom Typ String
      * @param wert Wert des Knotens, von beliebigen Typ
      */
@@ -27,7 +26,7 @@ public class Node<E> {
         this.kinder = new NodeListImpl<E>();
     }
     /**
-     * Fügt den übergebenen Knoten als Kind hinzu, sofern er nicht schon ein
+     * Fuegt den uebergebenen Knoten als Kind hinzu, sofern er nicht schon ein
      * Kind ist.
      * @param kind Knoten, der als Kind gespeichert werden soll
      */
@@ -37,21 +36,21 @@ public class Node<E> {
         }
     }
     /**
-     * Gibt alle Kinder des Knotens in einer Liste zurück.
+     * Gibt alle Kinder des Knotens in einer Liste zurueck.
      * @return Liste mit den Kindern des Knotens
      */
     public NodeListImpl<E> getChildren(){
         return this.kinder;
     }
     /**
-     * Gibt den Namen des Knotens zurück.
+     * Gibt den Namen des Knotens zurueck.
      * @return Name des Knoten
      */
     public String getName(){
         return this.name;
     }
     /**
-     * Gibt den Wert des Knotens zurück.
+     * Gibt den Wert des Knotens zurueck.
      * @return Wert des Knoten
      */
     public E getValue(){

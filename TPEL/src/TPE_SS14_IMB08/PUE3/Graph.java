@@ -50,7 +50,8 @@ public class Graph<T>{
      * Durchsucht den Graphen nach einem bestimmten Wert entsprechend der 
      * uebergebenen Suchstrategie
      * @param wert  zu suchender Wert
-     * @param strategie Strategie nach der gesucht werden soll
+     * @param strategie Strategie entsprechend welcher der Graph durchsucht
+     *                  werden soll
      * @return Liste der Knoten, die den gesuchten Wert enthalten
      */
     public NodeList<T> search(T wert, SearchStrategy<T> strategie) {

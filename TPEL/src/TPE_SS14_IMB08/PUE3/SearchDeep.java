@@ -11,14 +11,15 @@ public class SearchDeep<T> implements SearchStrategy<T> {
     private NodeList<T> path;
     
     /**
-     * Erstellt ein neues Suchobjekt mit einem Pfad in dem der Verlauf der 
-     * Suche gespeichert wird.
+     * Erstellt ein neues Suchobjekt mit einem Pfad in dem der Verlauf der
+     * zuletzt ausgefuehrten Suche gespeichert wird.
      */
     public SearchDeep(){
         this.path = new NodeListImpl<>();
     }
    /**
-    * @see TPE_SS14_IMB08.PUE3.SearchStrategy#search(java.lang.Object, TPE_SS14_IMB08.PUE3.Node)
+    * @see TPE_SS14_IMB08.PUE3.SearchStrategy#search(java.lang.Object, 
+    *   TPE_SS14_IMB08.PUE3.Node)
     */
     @Override
     public NodeList<T> search(T wert, Node<T> start) {
