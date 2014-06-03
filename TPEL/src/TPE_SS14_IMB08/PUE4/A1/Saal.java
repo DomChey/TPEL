@@ -1,11 +1,14 @@
 package TPE_SS14_IMB08.PUE4.A1;
 
-import java.util.Collection;
+import java.util.*;
 
-public class Saal {
+public class Saal implements Iterable<Object>{
+    //iterable ueber Object, da FilmZeit innere Klasse ist,
+    //und wir ausserhalb nur die toString()-Methode brauchen
+    
     private String name;
     private int sitzplaetze;
-    private Collection<FilmZeit> filme;
+    private ArrayList<FilmZeit> filme;
 
     /**
      * Innere Klasse, um Filme mit Anfangszeiten zusammenzufuegen
@@ -36,11 +39,17 @@ public class Saal {
             return this.film.hashCode()*this.anfangszeit.hashCode();
             
         }
+        
+        @Override
+        public String toString() {
+            return "" + anfangszeit + " -- " + film;
+        }
     }
     
     public Saal(String name, int sitzplaetze) {
         this.name = name;
         this.sitzplaetze = sitzplaetze;
+        filme = new ArrayList<FilmZeit>();
     }
 
     /**
@@ -57,6 +66,16 @@ public class Saal {
             return true;
         }
         return false;
+    }
+    /**
+     * Fuegt einen Film in die Liste der Filme dieses Saales ein
+     * @param film  Film
+     * @param anfangszeit Anfangszeit als String
+     * @return  true, wenn erfolgreich
+     */
+    public boolean addFilm(Film film, String anfangszeit) {
+        Zeit anfang = new Zeit(anfangszeit);
+        return addFilm(film, anfang);
     }
     
     /**
@@ -89,8 +108,40 @@ public class Saal {
     
     @Override
     public String toString() {
-        return "Saal '" + name + "' (" + sitzplaetze + " Plaetze)";
+        String tmp = "Saal '" + name + "' (" + sitzplaetze + " Plaetze) \n";
+        for (Object o: this) {
+            tmp = tmp + o + "\n";
+        }
+        return tmp;
+               
         
     }
+
+    @Override
+    public Iterator<Object> iterator() {
+        Iterator<Object> iti = new Iterator<Object>() {
+
+            private int pos = 0;
+            
+            @Override
+            public boolean hasNext() {
+                return (pos < filme.size());
+            }
+
+            @Override
+            public FilmZeit next() {
+                return filme.get(pos++);
+            }
+
+            @Override
+            public void remove() {
+                throw new UnsupportedOperationException();
+            }
+            
+        };
+        return iti;
+    }
+    
+    
     
 }

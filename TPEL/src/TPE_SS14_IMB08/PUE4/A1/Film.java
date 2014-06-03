@@ -13,7 +13,7 @@ public class Film {
     
     @Override
     public String toString() {
-        return titel + " " + altersfreigabe + " " + laufzeit;
+        return titel + " " + altersfreigabe + " " + laufzeit + " min";
     }
     
     //+equals +hashCode
