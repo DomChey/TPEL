@@ -22,6 +22,11 @@ public class Zeit {
         this.minuten = minuten;
     }
 
+    public Zeit(String zeitString) {
+        this.stunden = (int)Double.parseDouble((String)zeitString.substring(0, 2));
+        this.minuten = (int)Double.parseDouble((String)zeitString.substring(3, 5));        
+    }
+    
     
     public void addTime(int minuten) {
         int addStunden = minuten/60;
@@ -38,6 +43,19 @@ public class Zeit {
         
     }
 
+    @Override
+    public String toString() {
+        String a = "";
+        String b = "";
+        if (stunden<10) {
+            a = "0";
+        }
+        if (minuten<10) {
+            b = "0";
+        }
+        return "" + a + this.stunden + ":" + b + this.minuten;
+    }
+    
     
     @Override
     public boolean equals(Object o) {

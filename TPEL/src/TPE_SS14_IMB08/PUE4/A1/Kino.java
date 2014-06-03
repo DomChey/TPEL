@@ -1,36 +1,107 @@
 package TPE_SS14_IMB08.PUE4.A1;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Iterator;
+import java.util.*;
 
-public class Kino implements Iterable<Kino>{
+public class Kino implements Iterable<Saal>{
 
     String name;
     String stadt;
-    Set<Saal> saele;
+    ArrayList<Saal> saele;
     
-    public Kino(String name, String stadt) {
+    static Scanner eingabe;
+    
+    /**
+     * neues Kino erstellen mit
+     * @param name  Name des Kinos
+     * @param stadt Stadt des Kinos
+     * @param saal erster Saal des Kinos
+     */
+    public Kino(String name, String stadt, Saal saal) {
         this.name = name;
         this.stadt = stadt;
-        saele = new HashSet<Saal>();
-        addSaal();
+        eingabe = new Scanner(System.in);
+        saele = new ArrayList<Saal>();
+        saele.add(saal); //im neuen Kino muss noch nicht
+                        //auf Duplikate ueberprueft werden
     }
     
-    public void addSaal() {
+    public Kino(String name, String stadt) {
+        this(name, stadt, erstelleSaal());
+    }
+    
+    public void addNeuerSaal() {
+        Saal neuerSaal = erstelleSaal();
+        addSaal(neuerSaal);
+    }
+    
+    public void addSaal(Saal neuerSaal) {
+        if (!saele.contains(neuerSaal)) {
+            saele.add(neuerSaal);
+        }
+    }
+    
+    
+    public static Saal erstelleSaal() {
         //Benutzereingabe:
-        String name = "Hallo";
-        int sitzplaetze = 12;
+        System.out.println("Name des Saals:");
+        String name = eingabe.next();
+        System.out.println("Anzahl Sitzplaetze:");
+        int sitzplaetze = eingabe.nextInt();
         
         Saal neuerSaal = new Saal(name, sitzplaetze);
         
-        saele.add(neuerSaal);
+        return neuerSaal;
         
     }
 
     @Override
-    public Iterator<Kino> iterator() {
-        // TODO Auto-generated method stub
+    public Iterator<Saal> iterator() {
+        Iterator<Saal> iti = new Iterator<Saal>() {
+
+            private int pos = 0;
+            
+            @Override
+            public boolean hasNext() {
+                return (pos < saele.size());
+            }
+
+            @Override
+            public Saal next() {
+                return saele.get(pos++);
+            }
+
+            @Override
+            public void remove() {
+                throw new UnsupportedOperationException();
+            }
+            
+        };
+          
+        return iti;
+    }
+    
+    @Override
+    public String toString() {
+        String tmp = name + " in " + stadt + "\n";
+        for(Object o: this) {
+           tmp = tmp + o + "\n"; 
+        }
+        return tmp;
+    }
+    
+    public String[] getAlleFilmeMitZeiten() {
+        return null;
+    }
+    
+    public String[] getFilmefuerSaalMitZeiten() {
+        return null;
+    }
+    
+    public Film[] getAlleFilme() {
+        return null;
+    }
+    
+    public Film[] getAlleFilme(SortKrit kriterium) {
         return null;
     }
 }
