@@ -44,6 +44,10 @@ public class Saal implements Iterable<Object>{
         public String toString() {
             return "" + anfangszeit + " -- " + film;
         }
+        
+        public Film getFilm() {
+            return film;
+        }
     }
     
     public Saal(String name, int sitzplaetze) {
@@ -141,7 +145,24 @@ public class Saal implements Iterable<Object>{
         };
         return iti;
     }
+
+    public String[] getFilmeMitZeiten() {
+        String[] filmMitZeiten = new String[filme.size()];
+        
+        for (int i = 0; i<filme.size(); i++) {
+            filmMitZeiten[i] = filme.get(i).toString();
+        }
+        Arrays.sort(filmMitZeiten);
+        return filmMitZeiten;
+    }
     
+    public ArrayList<Film> getAlleFilme() {
+        ArrayList<Film> alleFilme = new ArrayList<Film>();
+        for (FilmZeit fz: filme) {
+            alleFilme.add(fz.getFilm());
+        }
+        return alleFilme;
+    }
     
     
 }

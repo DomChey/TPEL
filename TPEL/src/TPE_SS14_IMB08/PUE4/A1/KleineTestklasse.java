@@ -19,12 +19,27 @@ public class KleineTestklasse {
         Saal rot = new Saal("roter Saal", 10);
         odeo.addSaal(rot);
         odeo.addSaal(rot);
-        
+
         rot.addFilm(sammlung[3], "17:00");
+        gelb.addFilm(sammlung[3], "17:01");
+        gelb.addFilm(sammlung[1], new Zeit(12,33));
         
         System.out.println(odeo);
+
+        for(String s: odeo.getAlleFilmeMitZeiten()) {
+            System.out.println(s);
+        }
+        System.out.println();
         
+        for(String s: odeo.getFilmefuerSaalMitZeiten(gelb)) {
+            System.out.println(s);
+        }
         
+        System.out.println();
+        
+        for(Film f: odeo.getAlleFilme()) {
+            System.out.println(f);
+        }
 //        for(Object o: odeo) {
 //            System.out.println(o);
 //        }

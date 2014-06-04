@@ -4,11 +4,11 @@ import java.util.*;
 
 public class Kino implements Iterable<Saal>{
 
-    String name;
-    String stadt;
-    ArrayList<Saal> saele;
+    private String name;
+    private String stadt;
+    private ArrayList<Saal> saele;
     
-    static Scanner eingabe;
+    private static Scanner eingabe;
     
     /**
      * neues Kino erstellen mit
@@ -90,18 +90,47 @@ public class Kino implements Iterable<Saal>{
     }
     
     public String[] getAlleFilmeMitZeiten() {
-        return null;
+        LinkedList<String> alleFilmeMitZeiten = new LinkedList<>();
+        
+        for(Saal aktuellerSaal: this) {
+            String[] tmp = aktuellerSaal.getFilmeMitZeiten();
+            for(int i = 0; i<tmp.length; i++) {
+                if(!alleFilmeMitZeiten.contains(tmp[i])){
+                    alleFilmeMitZeiten.add(tmp[i]);
+                }
+            }
+        }
+        
+        Collections.sort(alleFilmeMitZeiten);
+        
+        String[] tmp = new String[alleFilmeMitZeiten.size()];
+        return alleFilmeMitZeiten.toArray(tmp);
     }
     
-    public String[] getFilmefuerSaalMitZeiten() {
-        return null;
+    public String[] getFilmefuerSaalMitZeiten(Saal s) {
+        return s.getFilmeMitZeiten();
     }
     
     public Film[] getAlleFilme() {
-        return null;
+        return getAlleFilme(SortKrit.TITEL);
     }
     
     public Film[] getAlleFilme(SortKrit kriterium) {
-        return null;
+        ArrayList<Film> alleFilmeDup = new ArrayList<>();
+        for(Saal aktuellerSaal: this) {
+            alleFilmeDup.addAll(aktuellerSaal.getAlleFilme());
+        }
+        
+        ArrayList<Film> alleFilmeOhneDup = new ArrayList<>();
+        for(Film aktFilm: alleFilmeDup) {
+            if(!alleFilmeOhneDup.contains(aktFilm)) {
+                alleFilmeOhneDup.add(aktFilm);
+            }
+        }
+        
+        Collections.sort(alleFilmeOhneDup);
+    
+        Film[] tmp = new Film[alleFilmeOhneDup.size()];
+        return alleFilmeOhneDup.toArray(tmp);
     }
 }
