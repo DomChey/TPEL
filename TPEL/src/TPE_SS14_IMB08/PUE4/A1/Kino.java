@@ -101,8 +101,8 @@ public class Kino implements Iterable<Saal>{
             }
         }
         
-        Collections.sort(alleFilmeMitZeiten);
-        
+        Collections.sort(alleFilmeMitZeiten, new LaufzeitComperator());
+        //FUUUUUU, String vorne Film hinten.. nervt!!
         String[] tmp = new String[alleFilmeMitZeiten.size()];
         return alleFilmeMitZeiten.toArray(tmp);
     }
