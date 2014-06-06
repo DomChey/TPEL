@@ -1,6 +1,6 @@
 package TPE_SS14_IMB08.PUE4.A1;
 
-public class Film implements Comparable{
+public class Film implements Comparable<Film>{
     private String titel;
     private int laufzeit;
     private FSK altersfreigabe;
@@ -31,9 +31,17 @@ public class Film implements Comparable{
         return titel.hashCode()*laufzeit*altersfreigabe.hashCode();
     }
 
-    @Override
-    public int compareTo(Object arg0) {
-        // TODO Auto-generated method stub
-        return 0;
+    public int getLaufzeit() {
+        return this.laufzeit;
+    }
+    
+    public FSK getAltersfreigabe() {
+        return this.altersfreigabe;
+    }
+    
+    
+    //standardmaessig Titel vergleichen
+    public int compareTo(Film o) {
+        return this.titel.compareTo(o.titel);
     }
 }
