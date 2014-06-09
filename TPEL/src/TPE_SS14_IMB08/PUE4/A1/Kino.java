@@ -90,21 +90,19 @@ public class Kino implements Iterable<Saal>{
     }
     
     public String[] getAlleFilmeMitZeiten() {
-        LinkedList<String> alleFilmeMitZeiten = new LinkedList<>();
+        LinkedList<String> tmp1 = new LinkedList<>();
         
         for(Saal aktuellerSaal: this) {
-            String[] tmp = aktuellerSaal.getFilmeMitZeiten();
-            for(int i = 0; i<tmp.length; i++) {
-                if(!alleFilmeMitZeiten.contains(tmp[i])){
-                    alleFilmeMitZeiten.add(tmp[i]);
+            String[] tmp2 = aktuellerSaal.getFilmeMitZeiten();
+            for(int i = 0; i<tmp2.length; i++) {
+                if(!tmp1.contains(tmp2[i])){
+                    tmp1.add(tmp2[i]);
                 }
             }
         }
-        
-        Collections.sort(alleFilmeMitZeiten, new LaufzeitComperator());
-        //FUUUUUU, String vorne Film hinten.. nervt!!
-        String[] tmp = new String[alleFilmeMitZeiten.size()];
-        return alleFilmeMitZeiten.toArray(tmp);
+        String[] alleFilmeMitZeiten = new String[tmp1.size()];
+        tmp1.toArray(alleFilmeMitZeiten);
+        return alleFilmeMitZeiten;
     }
     
     public String[] getFilmefuerSaalMitZeiten(Saal s) {

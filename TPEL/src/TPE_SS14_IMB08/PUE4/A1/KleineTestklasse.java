@@ -13,19 +13,48 @@ public class KleineTestklasse {
         Saal gelb = new Saal("gelber Saal", 234);
         Kino odeo = new Kino("Odeon Theater", "Entenhausen", gelb);
         
-        gelb.addFilm(sammlung[0], "10:57");
-        gelb.addFilm(sammlung[2], "11:01");
+        try{
+            gelb.addFilm(sammlung[0], "10:00");
+        }
+        catch (IllegalTimeException e){
+            System.out.println(e.getMessage()+1);
+        }
+        try{
+            gelb.addFilm(sammlung[2], "13:00"); 
+        }
+        catch (IllegalTimeException e){
+            System.out.println(e.getMessage()+2);
+        }
+        
         
         Saal rot = new Saal("roter Saal", 10);
         odeo.addSaal(rot);
         odeo.addSaal(rot);
+        
+        try{
+            rot.addFilm(sammlung[3], "17:00");
+        }
+        catch (IllegalTimeException e){
+            System.out.println(e.getMessage() +3);
+        }
+        try{
+            rot.addFilm(sammlung[3], "20:00");
+        }
+        catch (IllegalTimeException e){
+            System.out.println(e.getMessage()+4);
+        }
+        try{
+            rot.addFilm(sammlung[1], new Zeit(12,33));
+        }
+        catch (IllegalTimeException e){
+            System.out.println(e.getMessage()+5);
+        }      
 
-        rot.addFilm(sammlung[3], "17:00");
-        gelb.addFilm(sammlung[3], "17:01");
-        gelb.addFilm(sammlung[1], new Zeit(12,33));
         
         System.out.println(odeo);
-
+        
+        
+        
         for(String s: odeo.getAlleFilmeMitZeiten()) {
             System.out.println(s);
         }
