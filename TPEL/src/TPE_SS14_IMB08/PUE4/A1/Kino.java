@@ -126,9 +126,19 @@ public class Kino implements Iterable<Saal>{
             }
         }
         
-        Collections.sort(alleFilmeOhneDup);
-    
         Film[] tmp = new Film[alleFilmeOhneDup.size()];
-        return alleFilmeOhneDup.toArray(tmp);
+        tmp = alleFilmeOhneDup.toArray(tmp);
+        switch (kriterium){
+        case TITEL:
+            Arrays.sort(tmp, new Film.TitelComparator());
+            break;
+        case LAUFZEIT:
+            Arrays.sort(tmp, new Film.LaufzeitComparator());
+            break;
+        case FSK:
+            Arrays.sort(tmp, new Film.FSKComparator());
+            break;
+        }
+        return tmp;
     }
 }

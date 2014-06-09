@@ -51,10 +51,7 @@ public class Saal {
             +"Laufzeit des Neuen starten");
             }
         }
-        
-        
-        
-        //Wenn bis hier keine Exception kam, kann der Film hinzugefügt werden
+         //Wenn bis hier keine Exception kam, kann der Film hinzugefuegt werden
         filme.put(anfangszeit, film);
     }
     /**
