@@ -2,13 +2,26 @@ package TPE_SS14_IMB08.PUE4.A1;
 
 import java.util.*;
 
+/**
+ * Saal eines Kinos mit festgelegter Anzahl an Sitzplaetzen und einer beliebigen
+ * Anzahl an Filmen, die in ihm gespielt werden koennen.
+ * 
+ * @author IMB08
+ *
+ */
 public class Saal {
     
     private String name;
     private int sitzplaetze;
     private TreeMap<Zeit, Film> filme;
-
     
+    /**
+     * Erstellt einen neuen Saal mit Namen und Sitzplaetzen.
+     * 
+     * @param name Name des Saals im Format String
+     * 
+     * @param sitzplaetze Anzahl der Sitzplaetze im Saal im Format int
+     */
     public Saal(String name, int sitzplaetze) {
         this.name = name;
         this.sitzplaetze = sitzplaetze;
@@ -82,12 +95,20 @@ public class Saal {
     public String getName() {
         return name;
     }
-
+    
+    /**
+     * 
+     * @see java.lang.Object#hashCode()
+     */
     @Override
     public int hashCode() {
         return this.name.hashCode()*this.sitzplaetze;
     }
     
+    /**
+     * 
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
     @Override
     public boolean equals(Object o) {
         Saal s = (Saal) o;
@@ -97,6 +118,10 @@ public class Saal {
         return false;
     }
     
+    /**
+     * 
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         String tmp = "Saal '" + name + "' (" + sitzplaetze + " Plaetze) \n";
@@ -110,7 +135,13 @@ public class Saal {
     }
     
 
-
+    /**
+     * Gibt alle Filme, die im Saal laufen mit ihren Startzeiten und sortiert 
+     * nach diesen zurueck. Dabei koennen Filme doppelt vorkommen, wenn sie zu 
+     * unterschiedlichen Zeiten  laufen.
+     * 
+     * @return Filme des Saals mit Startzeiten im Format String-Array
+     */
     public String[] getFilmeMitZeiten() {
         String[] filmMitZeiten = new String[filme.size()];
         int index = 0;
@@ -124,7 +155,11 @@ public class Saal {
         return filmMitZeiten;
     }
     
-    
+    /**
+     * Gibt alle Filme die im Saal laufen zurueck.
+     * 
+     * @return alle Filme des Saales in einer ArrayList vom Typ Film
+     */
     public ArrayList<Film> getAlleFilme() {
         ArrayList<Film> alleFilme = new ArrayList<Film>();
         Collection<Film> tmp = filme.values();
