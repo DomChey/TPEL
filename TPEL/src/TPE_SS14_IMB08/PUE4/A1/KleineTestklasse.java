@@ -69,9 +69,9 @@ public class KleineTestklasse {
         for(Film f: odeo.getAlleFilme()) {
             System.out.println(f);
         }
-//        for(Object o: odeo) {
-//            System.out.println(o);
-//        }
+        for(Object o: odeo) {
+            System.out.println(o);
+        }
         
     }
 
