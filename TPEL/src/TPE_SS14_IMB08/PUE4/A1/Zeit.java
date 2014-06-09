@@ -1,30 +1,57 @@
 package TPE_SS14_IMB08.PUE4.A1;
 
+/**
+ * Eine Zeitklasse im Format hh:mm. Die Zeit kann im Bereich von O:OO bis 23:59
+ * entprechend der ueblichen Stunden- und Minutenwerte beliebig gewaehlt
+ * werden.
+ * @author IMB08
+ *
+ */
 public class Zeit {
     private int stunden;
     private int minuten;
+    private final static int MAX_STD = 23;
+    private final static int MIN_STD = 0;
+    private final static int MAX_MIN = 59;
+    private final static int MIN_MIN = 0;
     
-    public Zeit (int stunden, int minuten) {
-        if (stunden < 0) {
-            stunden = 0;
+    
+    /**
+     * Erstellt eine neue Zeit aus den einzeln uebergebenen Werten für Stunden
+     * und Minuten
+     * @param stunden Wert der Stunden als int
+     * @param minuten Wert der Minuten als int
+     * @throws IllegalArgumentException Sollten die angegebenen Werte fuer 
+     *      Stunden und Minuten nicht den gaengigen Stunden- und Minutenwerten
+     *      entsprechen, wird eine IllegalArgument Exception geworfen.
+     */
+    public Zeit (int stunden, int minuten) throws IllegalArgumentException {
+        if ((stunden < MIN_STD || stunden > MAX_STD)
+                ||( minuten < MIN_MIN) || minuten > MAX_MIN ) {
+           throw new IllegalArgumentException("Falsche Werte für Studen/Minuten");
         }
-        if (stunden > 23) {
-            stunden = 23;
-        }
-        if (minuten < 0) {
-            minuten = 0;
-        }
-        if (minuten > 59) {
-            minuten = 59;
-        }
-        
         this.stunden = stunden;
         this.minuten = minuten;
     }
-
-    public Zeit(String zeitString) {
-        this.stunden = (int)Double.parseDouble((String)zeitString.substring(0, 2));
-        this.minuten = (int)Double.parseDouble((String)zeitString.substring(3, 5));        
+    /**
+     * Erstellt eine neue Zeit aus einem String.
+     * @param zeitString Zeit als String übergeben im Format hh:mm.
+     * @throws IllegalArgumentException Sollten die angegebenen Werte fuer 
+     *      Stunden und Minuten nicht den gaengigen Stunden- und Minutenwerten
+     *      entsprechen, wird eine IllegalArgument Exception geworfen.
+     */
+    public Zeit(String zeitString) throws IllegalArgumentException {
+        int index = zeitString.indexOf(":");
+        String std = zeitString.substring(0, index);
+        String min = zeitString.substring((index+1),zeitString.length());
+        int stunden = ((int) Double.parseDouble(std));
+        int minuten = ((int) Double.parseDouble(min));
+        if ((stunden < MIN_STD || stunden > MAX_STD)
+                ||( minuten < MIN_MIN) || minuten > MAX_MIN ) {
+           throw new IllegalArgumentException("Falsche Werte für Studen/Minuten");
+        }
+        this.stunden = stunden;
+        this.minuten = minuten;
     }
     
     
