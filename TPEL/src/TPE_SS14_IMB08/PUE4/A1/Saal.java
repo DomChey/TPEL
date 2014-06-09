@@ -32,25 +32,28 @@ public class Saal {
         if(filme.containsKey(anfangszeit)){ 
             throw new IllegalTimeException("Es startet zur gleichen Zeit ein Film");  
         }
-        Set<Map.Entry<Zeit, Film>> filmSet = filme.entrySet();
-        // Laeuft noch ein anderer Film, wenn der neue starten soll
-        for(Map.Entry<Zeit, Film> entry: filmSet){
-            Zeit startzeit = entry.getKey();
-            Film zugehoerigFilm = entry.getValue();
-            Zeit endzeit = startzeit.addTime(zugehoerigFilm.getLaufzeit());
-            if( endzeit.compareTo(anfangszeit)>= 0){
-                throw new IllegalTimeException("Es laueft noch ein anderer Film"); 
+        Zeit endzeit = anfangszeit.addTime(film.getLaufzeit());
+        Zeit vorgaenger = filme.floorKey(anfangszeit); // naechst kleinere key, 
+                //also Startzeit des vorherigen Films
+        
+        Zeit nachfolger = filme.ceilingKey(anfangszeit); //naechst groessere key,
+                //also Startzeit des nachfolgenden Films
+        
+        if(vorgaenger != null){ //es gibt ueberhaupt einen Film, der frueher startet
+           Zeit vorgaengerEnde = vorgaenger.addTime(filme.get(vorgaenger).getLaufzeit());
+           if (vorgaengerEnde.compareTo(anfangszeit) >= 0){
+               throw new IllegalTimeException("Der vorhergehende Film läuft noch");
+           }
+        }
+        if (nachfolger != null){ //es gibt ueberhaupt einen nachfolgenden Film
+            if(endzeit.compareTo(nachfolger)>= 0){
+                throw new IllegalTimeException("Es wuerde ein Film in der "
+            +"Laufzeit des Neuen starten");
             }
         }
-        // Wuerde ein anderer Film in der Laufzeit des neuen starten?
-        Zeit NeuFilmEnde = anfangszeit.addTime(film.getLaufzeit());
-        for (Map.Entry<Zeit, Film> entry: filmSet){
-            Zeit startzeit = entry.getKey();
-            if(NeuFilmEnde.compareTo(startzeit)>=0){
-                throw new IllegalTimeException("Ein anderer Film startet in der "
-                    + "Laufzeit des Neuen");
-            }
-        }
+        
+        
+        
         //Wenn bis hier keine Exception kam, kann der Film hinzugefügt werden
         filme.put(anfangszeit, film);
     }
