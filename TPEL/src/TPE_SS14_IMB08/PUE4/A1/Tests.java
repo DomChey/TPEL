@@ -17,11 +17,20 @@ public class Tests {
     @Test (expected= IllegalArgumentException.class)
     public void zeitTestBroken1(){
         new Zeit(99,99);
-    }
+    }    
     
     @Test (expected= IllegalArgumentException.class)
     public void zeitTestBroken2(){
         new Zeit("0:99");
     }
-
+   
+    @Test
+    public void  zeitvergleich(){
+        Zeit z1 = new Zeit(12,33);
+        Zeit z2 = new Zeit(13,55);
+        Zeit z3 = new Zeit(12,33);
+        assertEquals(-1, z1.compareTo(z2));
+        assertEquals(0, z1.compareTo(z3));
+        assertEquals(1, z2.compareTo(z1));
+    }
 }
