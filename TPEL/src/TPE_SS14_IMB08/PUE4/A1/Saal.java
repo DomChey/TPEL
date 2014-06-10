@@ -162,7 +162,8 @@ public class Saal {
      */
     public ArrayList<Film> getAlleFilme() {
         ArrayList<Film> alleFilme = new ArrayList<Film>();
-        Collection<Film> tmp = filme.values();
+        Collection<Film> tmp = filme.values(); //Zwischenschritt über Collections,
+            // da values() nicht direkt an ArrayList zuweisbar
         Iterator<Film> iti = tmp.iterator();
         while(iti.hasNext()){
             alleFilme.add(iti.next()); 

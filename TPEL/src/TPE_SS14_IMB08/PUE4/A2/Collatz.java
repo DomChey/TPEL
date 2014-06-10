@@ -10,11 +10,11 @@ import java.util.*;
  * @author IMB08
  *
  */
-public class Collatz implements Iterable<Integer> {
+public class Collatz implements Iterable<Long> {
      
-    private Integer startwert;
-    private Integer aktuellerWert;
-    private Integer iteratorPosition;
+    private Long startwert;
+    private Long aktuellerWert;
+    private Long iteratorPosition;
     
    
     /**
@@ -25,18 +25,18 @@ public class Collatz implements Iterable<Integer> {
      * @param n Startwert der Folge im Format int
      * @throws IllegalArgumentException Wenn Startwert kleiner gleich 0 
      */
-    public Collatz(int n) throws IllegalArgumentException{
+    public Collatz(Long n) throws IllegalArgumentException{
         if (n<=0){
             throw new IllegalArgumentException("ungueltieger Startwert");
         }
        this.startwert = n;
        this.aktuellerWert = n;
-       this.iteratorPosition = 1;
+       this.iteratorPosition = 1L;
        
     }
     
-    public Iterator<Integer> iterator() {
-        Iterator<Integer> iti = new Iterator<Integer>() {
+    public Iterator<Long> iterator() {
+        Iterator<Long> iti = new Iterator<Long>() {
 
             /**
              * 
@@ -51,7 +51,7 @@ public class Collatz implements Iterable<Integer> {
              * @see java.util.Iterator#next()
              */
             @Override
-            public Integer next() {
+            public Long next() {
                 if (aktuellerWert%2 == 0){
                     aktuellerWert = aktuellerWert/2;
                     iteratorPosition = iteratorPosition +1;
@@ -76,11 +76,11 @@ public class Collatz implements Iterable<Integer> {
         return iti;
     }
     
-    public Integer getLaengeFolge(){
+    public Long getLaengeFolge(){
         return iteratorPosition;
     }
     
-    public Integer getStartwert(){
+    public Long getStartwert(){
         return startwert;
     }
 }

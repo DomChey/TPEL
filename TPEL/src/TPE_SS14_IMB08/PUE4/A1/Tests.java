@@ -29,8 +29,12 @@ public class Tests {
         Zeit z1 = new Zeit(12,33);
         Zeit z2 = new Zeit(13,55);
         Zeit z3 = new Zeit(12,33);
+        Zeit z4 = new Zeit(12,34);
+        Zeit z5 = new Zeit(12,35);
         assertEquals(-1, z1.compareTo(z2));
         assertEquals(0, z1.compareTo(z3));
         assertEquals(1, z2.compareTo(z1));
+        assertEquals(-1, z3.compareTo(z4));
+        assertEquals(1, z5.compareTo(z4));
     }
 }
