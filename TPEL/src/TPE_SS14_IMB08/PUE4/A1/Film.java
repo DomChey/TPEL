@@ -77,7 +77,16 @@ public class Film {
     public FSK getAltersfreigabe() {
         return this.altersfreigabe;
     }
-
+    
+    /**
+     * Gibt den Titel des Films zurueck
+     * 
+     * @return Titel des Films im Format String
+     */
+    public String getTitel(){
+       return titel; 
+    }
+    
     /**
      * Innere Klasse zur Sortierung von Filmen nach FSK
      * 
@@ -136,7 +145,7 @@ public class Film {
          */
         @Override
         public int compare(Film f1, Film f2) {
-            return f1.titel.compareTo(f2.titel);
+            return f1.getTitel().compareTo(f2.getTitel());
         }
     }
 }
