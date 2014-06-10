@@ -7,13 +7,13 @@ package TPE_SS14_IMB08.PUE4.A2;
  */
 public class Counter {
     
-    private static Long Wert = 1L;
+    private static Long wert = 1L;
     private static Long laengsteCollatz = 1L;
     private static Long startwertLaengsteFolge; 
     
     public synchronized static Long getWert(){
-       Wert = Wert +1;
-       return Wert-1;
+       wert = wert +1;
+       return wert-1;
     }
     
     public synchronized static void setLaengsteCollatz(Collatz c){
@@ -28,5 +28,9 @@ public class Counter {
     
     public static Long getStartwert(){
         return startwertLaengsteFolge;
+    }
+    
+    public synchronized static Long liesWert(){
+        return wert;
     }
 }

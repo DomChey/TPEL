@@ -6,7 +6,7 @@ public class RunnerCol implements Runnable{
 
     @Override
     public void run(){
-        while(Counter.getWert() < 1000000){
+        while(Counter.liesWert() < 1000000){
             Long startwert = Counter.getWert();
             Collatz col = new Collatz(startwert);
             for (Long inti : col){
