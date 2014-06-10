@@ -11,10 +11,11 @@ import java.util.*;
  *
  */
 public class Collatz implements Iterable<Integer> {
-    
+     
     private Integer startwert;
     private Integer aktuellerWert;
     private Integer iteratorPosition;
+    
    
     /**
      * Erstellt eine neue Collatz-Folge ab dem uebergebenen Startwert. Muss
@@ -43,7 +44,7 @@ public class Collatz implements Iterable<Integer> {
              */
             @Override
             public boolean hasNext() {
-                return aktuellerWert >1;
+                return aktuellerWert > 1;
             }
             /**
              * 
@@ -74,4 +75,13 @@ public class Collatz implements Iterable<Integer> {
           
         return iti;
     }
+    
+    public Integer getLaengeFolge(){
+        return iteratorPosition;
+    }
+    
+    public Integer getStartwert(){
+        return startwert;
+    }
 }
+
