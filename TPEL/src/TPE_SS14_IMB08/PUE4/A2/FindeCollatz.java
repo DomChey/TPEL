@@ -7,23 +7,23 @@ public class FindeCollatz {
        
         Runnable runner1 = new RunnerCol();
         Runnable runner2 = new RunnerCol();
-//        Runnable runner3 = new RunnerCol();
-//        Runnable runner4 = new RunnerCol();
+        Runnable runner3 = new RunnerCol();
+        Runnable runner4 = new RunnerCol();
         
         Thread erster = new Thread(runner1);
         Thread zweiter = new Thread(runner2);
-//        Thread dritter = new Thread(runner3);
-//        Thread vierter = new Thread(runner4);
+        Thread dritter = new Thread(runner3);
+        Thread vierter = new Thread(runner4);
        
         erster.start();
         zweiter.start();
-//        dritter.start();
-//        vierter.start();
+        dritter.start();
+        vierter.start();
         try {
             erster.join();
             zweiter.join();
-//            dritter.join();
-//            vierter.join();
+            dritter.join();
+            vierter.join();
         }
         catch(InterruptedException ex){
                 
