@@ -12,8 +12,9 @@ import java.util.*;
  */
 public class Collatz implements Iterable<Integer> {
     
-    private int startwert;
-    private ArrayList<Integer> folge;
+    private Integer startwert;
+    private Integer aktuellerWert;
+    private Integer iteratorPosition;
    
     /**
      * Erstellt eine neue Collatz-Folge ab dem uebergebenen Startwert. Muss
@@ -27,32 +28,22 @@ public class Collatz implements Iterable<Integer> {
         if (n<=0){
             throw new IllegalArgumentException("ungueltieger Startwert");
         }
-        this.startwert = n;
-        this.folge = new ArrayList<Integer>();
-        while (n > 1){ 
-            folge.add(n);
-            if (n%2 == 0){
-                n = n/2;
-            } else {
-                n = n*3+1;
-            }
-        }
-        folge.add(n); // Muss hier eingefuegt werden, da bei n=1 die Schleife
-                       // nicht durchlaufen wird, 1 aber Teil der Folge ist.
-        
+       this.startwert = n;
+       this.aktuellerWert = n;
+       this.iteratorPosition = 1;
+       
     }
     
     public Iterator<Integer> iterator() {
         Iterator<Integer> iti = new Iterator<Integer>() {
 
-            private int pos = 0;
             /**
              * 
              * @see java.util.Iterator#hasNext()
              */
             @Override
             public boolean hasNext() {
-                return (pos < folge.size());
+                return aktuellerWert >1;
             }
             /**
              * 
@@ -60,7 +51,15 @@ public class Collatz implements Iterable<Integer> {
              */
             @Override
             public Integer next() {
-                return folge.get(pos++);
+                if (aktuellerWert%2 == 0){
+                    aktuellerWert = aktuellerWert/2;
+                    iteratorPosition = iteratorPosition +1;
+                    return aktuellerWert;
+                } else {
+                    aktuellerWert = aktuellerWert*3+1;
+                    iteratorPosition  = iteratorPosition +1;
+                    return aktuellerWert;
+                }
             }
             /**
              * 

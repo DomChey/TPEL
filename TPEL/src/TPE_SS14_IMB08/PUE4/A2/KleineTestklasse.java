@@ -12,7 +12,7 @@ public class KleineTestklasse {
         Collatz c1 = new Collatz(13);
         Collatz c2 = new Collatz(150);
         Collatz c3 = new Collatz(120);
-        Collatz c4 = new Collatz(1000);
+        Collatz c4 = new Collatz(1000000);
         
         for(Integer blubb : c1){
             System.out.println(blubb);
