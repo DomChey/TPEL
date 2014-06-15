@@ -1,6 +1,6 @@
 
 /**
- * Pflichtuebung 4
+ * TPEL Pflichtuebung 4
  * Aufgabe 2 Collatz-Folge
  * @author IMB08
  *
