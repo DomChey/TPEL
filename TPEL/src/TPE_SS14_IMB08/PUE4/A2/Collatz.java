@@ -35,6 +35,10 @@ public class Collatz implements Iterable<Long> {
        
     }
     
+    /**
+     * 
+     * @see java.lang.Iterable#iterator()
+     */
     public Iterator<Long> iterator() {
         Iterator<Long> iti = new Iterator<Long>() {
 
@@ -76,10 +80,19 @@ public class Collatz implements Iterable<Long> {
         return iti;
     }
     
+    /** 
+     * Gibt die Laenge der Folge zurueck.
+     * @return  Laenge der Folge
+     */
     public Long getLaengeFolge(){
         return iteratorPosition;
     }
     
+    /**
+     * Gibt an welchen Startwert die Collatzfolge hat.
+     * 
+     * @return Startwert der Folge
+     */
     public Long getStartwert(){
         return startwert;
     }
