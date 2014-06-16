@@ -29,7 +29,7 @@ public class Zeit implements Comparable<Zeit> {
      *      Stunden und Minuten nicht den gaengigen Stunden- und Minutenwerten
      *      entsprechen, wird eine IllegalArgument Exception geworfen.
      */
-    public Zeit (int stunden, int minuten) throws IllegalArgumentException {
+    public Zeit (int stunden, int minuten){
         if ((stunden < MIN_STD || stunden > MAX_STD)
                 ||( minuten < MIN_MIN) || minuten > MAX_MIN ) {
            throw new IllegalArgumentException("Falsche Werte für Studen/Minuten");

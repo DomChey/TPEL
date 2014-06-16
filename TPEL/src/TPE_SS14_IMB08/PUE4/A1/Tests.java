@@ -37,4 +37,33 @@ public class Tests {
         assertEquals(-1, z3.compareTo(z4));
         assertEquals(1, z5.compareTo(z4));
     }
+    
+    
+    Film[] sammlung = {new Film("Batman Begins", 134, FSK.ab12),
+            new Film("Pulp Fiction", 148, FSK.ab16),
+            new Film("From Dusk till Dawn", 87, FSK.ab16),
+            new Film("Machete", 100, FSK.ab18)
+    };
+    
+    Saal gelb = new Saal("gelber Saal", 234);
+    Saal rot = new Saal("roter Saal", 10);
+    Kino odeo = new Kino("Odeon Theater", "Entenhausen", gelb);
+    
+    @Test
+    public void saalZuweisen() {
+        odeo.addSaal(rot);
+        
+        assertEquals("Odeon Theater in Entenhausen\n"+
+                    "Saal 'gelber Saal' (234 Plaetze) \n\n" +
+                    "Saal 'roter Saal' (10 Plaetze) \n\n", odeo.toString());
+        
+    }
+    
+    @Test (expected=IllegalTimeException.class)
+    public void filmEinfuegen() throws IllegalTimeException{
+        gelb.addFilm(sammlung[0], new Zeit(17,00));
+        gelb.addFilm(sammlung[1], new Zeit(16,10));
+    }
+    
+    
 }

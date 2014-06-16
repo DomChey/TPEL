@@ -30,7 +30,7 @@ public class Tests {
         Collatz c2 = new Collatz(13L);
         Collatz c3 = new Collatz(5L);
         
-        for(Long iti: c1){
+        for( Long iti: c1){
             
         }
         for(Long iti: c2){

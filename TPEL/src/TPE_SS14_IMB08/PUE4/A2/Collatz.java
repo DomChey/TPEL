@@ -25,7 +25,7 @@ public class Collatz implements Iterable<Long> {
      * @param n Startwert der Folge im Format int
      * @throws IllegalArgumentException Wenn Startwert kleiner gleich 0 
      */
-    public Collatz(Long n) throws IllegalArgumentException{
+    public Collatz(Long n){
         if (n<=0){
             throw new IllegalArgumentException("ungueltieger Startwert");
         }
