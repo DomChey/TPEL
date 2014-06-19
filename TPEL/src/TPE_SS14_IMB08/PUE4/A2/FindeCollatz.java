@@ -33,7 +33,7 @@ public class FindeCollatz {
             vierter.join();
         }
         catch(InterruptedException ex){
-                
+            
         }
         
         System.out.println("Laengste CollatzFolge ist " 
